@@ -1,10 +1,12 @@
 <template>
-  <div class="froth">
-    <div v-for=" in 5" class="foam"></div>
+  <div class="froth" :style="{ backgroundColor: currentCreamer.color }">
+    <div v-for=" in 5" class="foam" :style="{ background: currentCreamer.color }"></div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { currentCreamer } from "../stores/beverage";
+</script>
 <style lang="scss" scoped>
 .froth {
   overflow: visible;
@@ -12,12 +14,10 @@
   position: relative;
   height: 20%;
   width: 100%;
-  background-color: #c6c6c6;
   animation: pour-tea 2s 2s forwards;
 }
 .foam {
   display: block;
-  background: #e4e0d2;
   border-radius: 30px;
   height: 40px;
   width: 40px;
